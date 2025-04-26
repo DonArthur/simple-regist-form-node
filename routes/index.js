@@ -35,4 +35,12 @@ router.post('/',
     }
 })
 
+router.get('/registrations', (req, res) => {
+    Registration.find()
+        .then((reg) => {
+            res.render('index', { title: 'Registrations', reg })
+        })
+        .catch(() => {  res.send('Sorry, something went wrong') })
+})
+
 module.exports = router
